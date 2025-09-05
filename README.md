@@ -5,7 +5,9 @@ A simple implementation of the String Calculator Kata using Test-Driven Developm
 **Requirements:-**
 - Language: (Ruby)
       Minimum: ruby 2.7+
+
       Recommended: Ruby 3.x
+
       Used:    ruby 3.2.2
 - RSpec: ~> 3.x
      Testing framework: (RSpec)
