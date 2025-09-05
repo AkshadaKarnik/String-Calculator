@@ -15,13 +15,21 @@ add(string numbers)
 
 *Cases used are as follows:* 
 I/P -> O/P
+
 "" -> 0
+
 "1" -> 1
+
 "1,5" -> 6
+
 Handles any number of inputs.
+
 Supports newlines as delimiters ("1\n2,3" → 6).
+
 Custom delimiters ("//;\n1;2" → 3).
+
 Throws exception on negatives:
+
 "negative numbers not allowed: -2,-5"
 
 **How to Run**
