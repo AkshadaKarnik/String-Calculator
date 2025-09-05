@@ -6,16 +6,18 @@ A simple implementation of the String Calculator Kata using Test-Driven Developm
 - Language: (Ruby)
       Minimum: ruby 2.7+
 
-      Recommended: Ruby 3.x
+      Recommended: ruby 3.x
 
       Used:    ruby 3.2.2
+
 - RSpec: ~> 3.x
      Testing framework: (RSpec)
  
 **Features:-**
 add(string numbers)
 
-*Cases used are as follows:* 
+Cases used are as follows:
+
 I/P -> O/P
 
 "" -> 0
@@ -35,7 +37,7 @@ Throws exception on negatives:
 "negative numbers not allowed: -2,-5"
 
 **How to Run**
-# run tests
+run tests by below command
 bundle exec rspec
 
 **TDD Approach**
