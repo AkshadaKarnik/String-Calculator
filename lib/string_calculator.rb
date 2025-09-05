@@ -4,14 +4,10 @@ class StringCalculator
   def add(string_numbers)
     return 0 if string_numbers.nil? || string_numbers == ""
 
-    delimiter_regex = /,|\n/
-    if string_numbers.start_with?("//")
-      header, string_numbers = string_numbers.split("\n", 2)
-      custom = header[2..] # everything after "//"
-      delimiter_regex = Regexp.union(Regexp.new(Regexp.escape(custom)), /\n/)
-    end
+    delim_regex, body = parse_delimiters(string_numbers)
 
-    ints = string_numbers.split(delimiter_regex).reject(&:empty?).map(&:to_i)
+    # Split and convert
+    ints = body.split(delim_regex).reject(&:empty?).map(&:to_i)
 
     # Validate
     negatives = ints.select { |n| n.negative? }
@@ -20,5 +16,19 @@ class StringCalculator
     end
 
     ints.sum
+  end
+
+  private
+
+  # If the string starts with custom delimiter header ("//;\n1;2")
+  # using that delimiter; otherwise using default comma/newline.
+  def parse_delimiters(input)
+    if input.start_with?("//")
+      header, body = input.split("\n", 2)
+      custom = header[2..] # after //
+      [Regexp.new(Regexp.escape(custom)), body || ""]
+    else
+      [/[,\n]/, input]
+    end
   end
 end
