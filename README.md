@@ -37,7 +37,9 @@ Throws exception on negatives:
 "negative numbers not allowed: -2,-5"
 
 **How to Run**
+
 run tests by below command
+
 bundle exec rspec
 
 **TDD Approach**
