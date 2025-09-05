@@ -11,7 +11,14 @@ class StringCalculator
       delimiter_regex = Regexp.union(Regexp.new(Regexp.escape(custom)), /\n/)
     end
 
-    parts = string_numbers.split(delimiter_regex)
-    parts.map(&:to_i).sum
+    ints = string_numbers.split(delimiter_regex).reject(&:empty?).map(&:to_i)
+
+    # Validate
+    negatives = ints.select { |n| n.negative? }
+    unless negatives.empty?
+      raise ArgumentError, "negative numbers not allowed: #{negatives.join(',')}"
+    end
+
+    ints.sum
   end
 end
