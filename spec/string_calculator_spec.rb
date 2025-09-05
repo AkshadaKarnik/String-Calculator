@@ -19,5 +19,9 @@ RSpec.describe StringCalculator do
     it "handles any amount of comma-separated numbers" do
       expect(subject.add("1,2,3,4,5")).to eq(15)
     end
+
+    it "handles new lines between numbers (alongside commas)" do
+      expect(subject.add("1\n2,3")).to eq(6)
+    end
   end
 end
